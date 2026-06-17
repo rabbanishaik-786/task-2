@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Clearwave Landing Page</title>
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:Arial, sans-serif;
+  background:#eaf7f4;
+  color:#092521;
+}
+
+a{
+  text-decoration:none;
+  color:#31544f;
+}
+
+button{
+  border:0;
+  cursor:pointer;
+  border-radius:30px;
+  font-weight:700;
+}
+
+.navbar{
+  height:80px;
+  padding:0 12%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:#eaf7f4;
+}
+
+.logo{
+  font-weight:800;
+  color:#092521;
+}
+
+.logo span{
+  color:#178b7b;
+}
+
+nav a{
+  margin:0 24px;
+  font-size:13px;
+  color:#31544f;
+}
+
+.signin{
+  margin-right:25px;
+  font-size:13px;
+}
+
+.btn{
+  background:#178b7b;
+  color:white;
+  padding:14px 28px;
+  box-shadow:0 12px 28px rgba(23,139,123,.28);
+}
+
+.hero{
+  min-height:650px;
+  padding:95px 14%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:80px;
+}
+
+.badge{
+  display:inline-block;
+  background:white;
+  color:#178b7b;
+  padding:9px 16px;
+  border-radius:22px;
+  font-size:12px;
+  font-weight:700;
+}
+
+h1{
+  font-size:66px;
+  line-height:1.05;
+  margin:30px 0;
+  letter-spacing:-2px;
+}
+
+h2{
+  font-size:48px;
+  line-height:1.15;
+  text-align:center;
+  margin:25px 0;
+  letter-spacing:-1px;
+}
+
+em{
+  font-family:Georgia, serif;
+  color:#178b7b;
+  font-style:italic;
+}
+
+.hero p,
+.mobile p,
+.features p,
+.integrations p,
+.faq-left p{
+  color:#55716d;
+  line-height:1.8;
+  max-width:520px;
+}
+
+.demo{
+  margin-left:18px;
+  color:#178b7b;
+  font-size:14px;
+  font-weight:700;
+  border:1px solid #d4e7e3;
+  padding:14px 22px;
+  border-radius:30px;
+}
+
+.hero-icons{
+  display:flex;
+  gap:35px;
+  margin-top:40px;
+  color:#55716d;
+  font-size:12px;
+}
+
+.dashboard-wrap{
+  position:relative;
+}
+
+.dashboard-card{
+  width:430px;
+  background:white;
+  border-radius:22px;
+  padding:35px;
+  box-shadow:0 25px 60px rgba(0,0,0,.10);
+}
+
+.window-dots span{
+  display:inline-block;
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  margin-right:6px;
+}
+
+.window-dots span:nth-child(1){background:#ff6b6b;}
+.window-dots span:nth-child(2){background:#ffd166;}
+.window-dots span:nth-child(3){background:#06d6a0;}
+
+.dashboard-card h3{
+  margin:25px 0;
+}
+
+.bars{
+  display:flex;
+  align-items:end;
+  gap:14px;
+  height:120px;
+  margin-bottom:25px;
+}
+
+.bars span{
+  flex:1;
+  background:#178b7b;
+  border-radius:5px;
+}
+
+.bars span:nth-child(1){height:35px;opacity:.12;}
+.bars span:nth-child(2){height:55px;opacity:.15;}
+.bars span:nth-child(3){height:45px;opacity:.12;}
+.bars span:nth-child(4){height:80px;}
+.bars span:nth-child(5){height:60px;opacity:.15;}
+.bars span:nth-child(6){height:90px;}
+.bars span:nth-child(7){height:100px;}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
+
+.stats div{
+  background:#eaf7f4;
+  padding:18px;
+  border-radius:14px;
+  font-size:12px;
+  color:#55716d;
+}
+
+.stats b{
+  font-size:20px;
+  color:#092521;
+}
+
+.float-card{
+  position:absolute;
+  background:#178b7b;
+  color:white;
+  padding:20px;
+  border-radius:16px;
+  right:-25px;
+  top:25px;
+  box-shadow:0 20px 40px rgba(0,0,0,.15);
+}
+
+.integration-card{
+  position:absolute;
+  background:white;
+  left:-35px;
+  bottom:-20px;
+  padding:15px 20px;
+  border-radius:14px;
+  box-shadow:0 20px 40px rgba(0,0,0,.12);
+  font-size:12px;
+}
+
+.brands{
+  padding:55px 8%;
+  text-align:center;
+  background:#f4fbf9;
+  border-top:1px solid #d4e7e3;
+  border-bottom:1px solid #d4e7e3;
+}
+
+.brands p{
+  font-size:11px;
+  letter-spacing:2px;
+  color:#55716d;
+}
+
+.brand-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:35px;
+  color:#55716d;
+  font-weight:700;
+}
+
+.mobile{
+  padding:95px 12%;
+  text-align:center;
+  background:#f4fbf9;
+}
+
+.mobile p{
+  margin:0 auto;
+}
+
+.slider{
+  margin:30px 0;
+  color:#178b7b;
+}
+
+.phones{
+  display:flex;
+  justify-content:center;
+  align-items:end;
+  gap:35px;
+  margin-top:60px;
+}
+
+.phone{
+  width:155px;
+  height:300px;
+  background:white;
+  border-radius:28px;
+  box-shadow:0 25px 55px rgba(0,0,0,.15);
+}
+
+.phone.dark{
+  background:#092521;
+}
+
+.phone.center{
+  width:205px;
+  height:400px;
+  background:#f8fff7;
+}
+
+.features{
+  padding:110px 14%;
+  background:#eaf7f4;
+  text-align:center;
+}
+
+.features small{
+  color:#55716d;
+  line-height:1.7;
+}
+
+.feature-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:90px;
+  margin:100px 0;
+  text-align:left;
+}
+
+.feature-row > div{
+  flex:1;
+}
+
+.feature-row h3{
+  font-size:34px;
+  line-height:1.15;
+  margin:20px 0;
+}
+
+ul{
+  list-style:none;
+  margin-top:25px;
+}
+
+li{
+  margin:13px 0;
+  color:#55716d;
+}
+
+li::before{
+  content:"✓ ";
+  color:#178b7b;
+  font-weight:700;
+}
+
+.mock-card{
+  background:white;
+  border-radius:22px;
+  padding:32px;
+  min-height:250px;
+  box-shadow:0 25px 60px rgba(0,0,0,.10);
+}
+
+.mock-line{
+  background:#eaf7f4;
+  padding:15px;
+  border-radius:10px;
+  margin:12px 0;
+  color:#55716d;
+  font-size:13px;
+}
+
+.mini-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+}
+
+.mini-box{
+  background:white;
+  border-radius:12px;
+  padding:18px;
+  box-shadow:0 12px 30px rgba(0,0,0,.07);
+}
+
+.numbers{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  padding:75px 14%;
+  border-top:1px solid #d4e7e3;
+  border-bottom:1px solid #d4e7e3;
+  background:#eaf7f4;
+}
+
+.numbers div{
+  border-left:1px solid #d4e7e3;
+  padding-left:45px;
+}
+
+.numbers b{
+  font-size:42px;
+}
+
+.numbers p{
+  color:#55716d;
+  font-size:12px;
+  margin-top:8px;
+}
+
+.pricing{
+  padding:95px 12%;
+  text-align:center;
+  background:#f4fbf9;
+}
+
+.toggle{
+  margin:30px 0;
+  color:#55716d;
+  font-size:13px;
+}
+
+.cards{
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  margin-top:55px;
+}
+
+.price-card{
+  width:300px;
+  background:white;
+  border-radius:22px;
+  padding:38px;
+  text-align:left;
+  box-shadow:0 20px 50px rgba(0,0,0,.08);
+}
+
+.price-card h4{
+  color:#55716d;
+  letter-spacing:2px;
+}
+
+.price-card h3{
+  font-size:46px;
+  margin:25px 0;
+}
+
+.price-card p{
+  color:#55716d;
+  line-height:1.7;
+}
+
+.price-card hr{
+  border:0;
+  border-top:1px solid #d4e7e3;
+  margin:25px 0;
+}
+
+.popular{
+  background:#092521;
+  color:white;
+  transform:scale(1.08);
+}
+
+.popular p,
+.popular li,
+.popular h4{
+  color:#c7d9d6;
+}
+
+.outline-btn{
+  width:100%;
+  padding:14px;
+  border:1px solid #d4e7e3;
+  background:white;
+  color:#178b7b;
+}
+
+.price-card .btn{
+  width:100%;
+  margin-top:25px;
+}
+
+.reviews{
+  padding:95px 12%;
+  text-align:center;
+  background:#eaf7f4;
+}
+
+.review-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:35px;
+  margin-top:60px;
+  text-align:left;
+}
+
+.review-card{
+  background:white;
+  border-radius:22px;
+  padding:35px;
+  box-shadow:0 20px 50px rgba(0,0,0,.08);
+}
+
+.review-card p{
+  color:#55716d;
+  line-height:1.8;
+  margin:20px 0;
+}
+
+.stars{
+  color:#178b7b;
+  letter-spacing:3px;
+}
+
+.integrations{
+  padding:95px 12%;
+  text-align:center;
+  background:#f4fbf9;
+}
+
+.integration-tags{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:15px;
+  margin-top:45px;
+}
+
+.integration-tags span{
+  background:white;
+  padding:12px 24px;
+  border-radius:25px;
+  box-shadow:0 8px 20px rgba(0,0,0,.07);
+  color:#55716d;
+  font-weight:700;
+  font-size:13px;
+}
+
+.faq{
+  display:grid;
+  grid-template-columns:1fr 2fr;
+  gap:90px;
+  padding:95px 14%;
+  background:#eaf7f4;
+}
+
+.faq h2{
+  text-align:left;
+}
+
+.faq-item{
+  display:flex;
+  justify-content:space-between;
+  padding:24px 0;
+  border-bottom:1px solid #d4e7e3;
+  color:#31544f;
+  font-weight:700;
+}
+
+.cta{
+  width:74%;
+  margin:90px auto;
+  background:#092521;
+  color:white;
+  border-radius:28px;
+  padding:70px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.cta h2{
+  text-align:left;
+  color:white;
+}
+
+.cta p{
+  color:#c7d9d6;
+  line-height:1.8;
+}
+
+.cta-actions{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+
+.cta-actions .outline{
+  background:#092521;
+  color:white;
+  border:1px solid #31544f;
+  padding:14px 30px;
+}
+
+footer{
+  background:#092521;
+  color:white;
+  padding:75px 14% 35px;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:70px;
+}
+
+footer p,
+footer a{
+  color:#8aa39f;
+  line-height:2;
+  font-size:14px;
+}
+
+.socials span{
+  display:inline-flex;
+  width:32px;
+  height:32px;
+  border-radius:8px;
+  align-items:center;
+  justify-content:center;
+  background:#123631;
+  margin-right:8px;
+  color:#8aa39f;
+}
+
+.footer-bottom{
+  border-top:1px solid #123631;
+  margin-top:50px;
+  padding-top:25px;
+  display:flex;
+  justify-content:space-between;
+  color:#8aa39f;
+  font-size:12px;
+}
+
+@media(max-width:900px){
+  .navbar{
+    padding:0 6%;
+  }
+
+  nav{
+    display:none;
+  }
+
+  .hero,
+  .feature-row,
+  .cards,
+  .phones,
+  .cta{
+    flex-direction:column;
+    display:flex;
+  }
+
+  .numbers,
+  .review-grid,
+  .faq,
+  .footer-grid{
+    grid-template-columns:1fr;
+  }
+
+  h1{
+    font-size:46px;
+  }
+
+  h2{
+    font-size:36px;
+  }
+
+  .dashboard-card{
+    width:100%;
+  }
+
+  .cta{
+    width:90%;
+  }
+
+  .brand-row{
+    flex-wrap:wrap;
+    gap:20px;
+    justify-content:center;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+  <div class="logo">clear<span>wave</span></div>
+
+  <nav>
+    <a href="#">App</a>
+    <a href="#">Features</a>
+    <a href="#">Pricing</a>
+    <a href="#">Reviews</a>
+    <a href="#">FAQ</a>
+  </nav>
+
+  <div>
+    <a href="#" class="signin">Sign in</a>
+    <button class="btn">Start Free Trial</button>
+  </div> 
+</header>
+
+<section class="hero">
+  <div>
+    <span class="badge">★ Rated #1 Productivity SaaS of 2024</span>
+    <h1>Your workflow,<br><em>finally clear.</em></h1>
+    <p>Clearwave unifies your team’s projects, data, and communication into one calm, focused surface. Less noise, more done.</p>
+    <br>
+    <button class="btn">Start Free — No Card →</button>
+    <a href="#" class="demo">▶ See it in action</a>
+
+    <div class="hero-icons">
+      <span>◎ SOC 2 Certified</span>
+      <span>↯ 99.9% Uptime SLA</span>
+      <span>♟ 50k+ Teams</span>
+    </div>
+  </div>
+
+  <div class="dashboard-wrap">
+    <div class="dashboard-card">
+      <div class="window-dots"><span></span><span></span><span></span></div>
+      <h3>Team Performance</h3>
+      <div class="bars">
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <div class="stats">
+        <div><b>94%</b><br>Task Rate</div>
+        <div><b>2.4k</b><br>Active Users</div>
+        <div><b>18h</b><br>Saved / week</div>
+      </div>
+    </div>
+
+    <div class="float-card">↑ 34%<br><small>Output this week</small></div>
+    <div class="integration-card"><b>✦ New integration</b><br>Slack connected just now</div>
+  </div>
+</section>
+
+<section class="brands">
+  <p>TRUSTED BY FORWARD-THINKING TEAMS AT</p>
+  <div class="brand-row">
+    <span>▦ Nexaflow</span>
+    <span>◉ Meridian</span>
+    <span>▲ Vanta Labs</span>
+    <span>▭ Pulsar HQ</span>
+    <span>♟ Arclight</span>
+    <span>✦ Korova Co.</span>
+  </div>
+</section>
+
+<section class="mobile">
+  <span class="badge">● MOBILE APP</span>
+  <h2>Your workspace,<br><em>in your pocket</em></h2>
+  <p>The Clearwave mobile app brings every dashboard, task, and notification to you — beautifully adapted for any screen.</p>
+  <div class="slider">‹ • • ● • ›</div>
+
+
+<section class="features">
+  <span class="badge">● PLATFORM FEATURES</span>
+  <h2>Built for <em>clarity</em><br>at every scale</h2>
+  <small>Every feature is designed to reduce friction and surface what matters. No bloat, no configuration maze.</small>
+
+  <div class="feature-row">
+    <div>
+      <small>01 — UNIFIED DASHBOARD</small>
+      <h3>Every metric, one calm surface</h3>
+      <p>Pull data from any source into a single, composable view. Share live dashboards with stakeholders — no exports, no screenshots.</p>
+      <ul>
+        <li>Drag-and-drop widget builder</li>
+        <li>Real-time data sync across all sources</li>
+        <li>Role-based sharing with granular permissions</li>
+      </ul>
+    </div>
+
+    <div class="mock-card">
+      <div class="mini-grid">
+        <div class="mini-box"><small>Monthly Revenue</small><h3>$84.2k</h3></div>
+        <div class="mini-box"><small>Active Users</small><h3>12,481</h3></div>
+      </div>
+      <div class="mock-line">Q3 Report synced <b>Done</b></div>
+      <div class="mock-line">Team review pending <b>Active</b></div>
+      <div class="mock-line">Analytics export <b>Queued</b></div>
+    </div>
+  </div>
+
+  <div class="feature-row">
+    <div class="mock-card">
+      <div class="mock-line">Weekly digest → Slack <b>Running</b></div>
+      <div class="mock-line">Lead scored → Notify sales <b>Running</b></div>
+      <div class="mock-line">Invoice due → Alert CFO <b>Active</b></div>
+      <div class="mock-line">Report sync → Drive <b>Paused</b></div>
+      <br>
+      <div class="mini-grid">
+        <div class="mini-box"><small>Hours Saved</small><h3>148h</h3></div>
+        <div class="mini-box"><small>Flows</small><h3>24</h3></div>
+      </div>
+    </div>
+
+    <div>
+      <small>02 — SMART AUTOMATION</small>
+      <h3>Routines that run <em>themselves</em></h3>
+      <p>Build automation flows with natural language. Clearwave understands your intent and suggests the next step — no flowchart diagrams needed.</p>
+      <ul>
+        <li>Natural language automation builder</li>
+        <li>500+ pre-built trigger templates</li>
+        <li>Full audit trail for every action</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="feature-row">
+    <div>
+      <small>03 — TEAM COLLABORATION</small>
+      <h3>Comments, context,<br>and clarity</h3>
+      <p>Annotate anything, assign tasks inline, and resolve conversations without switching tabs.</p>
+      <ul>
+        <li>Inline comments on any data point</li>
+        <li>Threaded task assignments</li>
+        <li>Real-time presence and live cursors</li>
+      </ul>
+    </div>
+
+    <div class="mock-card">
+      <div class="mock-line">Alex → Q3 chart updated <b>Resolved</b></div>
+      <div class="mock-line">Kim → Review needed <b>Open</b></div>
+      <div class="mock-line">Maya → Approved & shipped <b>Done</b></div>
+    </div>
+  </div>
+</section>
+
+<section class="numbers">
+  <div><b>17k+</b><br><strong>Teams Worldwide</strong><p>Across 80+ countries</p></div>
+  <div><b>11%</b><br><strong>Avg. Productivity Gain</strong><p>Measured in first 30 days</p></div>
+  <div><b>34.3%</b><br><strong>Uptime SLA</strong><p>Guaranteed and monitored</p></div>
+  <div><b>6h</b><br><strong>Saved Per Team Weekly</strong><p>On average across all plans</p></div>
+</section>
+
+<section class="pricing">
+  <span class="badge">● PRICING</span>
+  <h2>Simple, <em>transparent</em> pricing</h2>
+  <p>No hidden fees. No surprise overages. Cancel anytime.</p>
+  <div class="toggle">Monthly ● Annual <span class="badge">Save 35%</span></div>
+
+  <div class="cards">
+    <div class="price-card">
+      <h4>STARTER</h4>
+      <h3>$20 <small>/ mo</small></h3>
+      <p>For individuals and small teams getting started with structured workflows.</p>
+      <hr>
+      <ul>
+        <li>Up to 5 team members</li>
+        <li>10 active dashboards</li>
+        <li>Basic automations</li>
+        <li>7-day data history</li>
+        <li>Email support</li>
+      </ul>
+      <button class="outline-btn">Start Free Trial</button>
+    </div>
+
+    <div class="price-card popular">
+      <h4>MOST POPULAR</h4>
+      <h3>$60 <small>/ mo</small></h3>
+      <p>For growing teams that need powerful automation and advanced reporting.</p>
+      <hr>
+      <ul>
+        <li>Up to 25 team members</li>
+        <li>Unlimited dashboards</li>
+        <li>Advanced automations</li>
+        <li>90-day data history</li>
+        <li>Priority chat support</li>
+      </ul>
+      <button class="btn">Start Free Trial</button>
+    </div>
+
+    <div class="price-card">
+      <h4>ENTERPRISE</h4>
+      <h3>$150 <small>/ mo</small></h3>
+      <p>For large organizations with custom requirements and compliance needs.</p>
+      <hr>
+      <ul>
+        <li>Unlimited members</li>
+        <li>Custom integrations & API</li>
+        <li>SSO & advanced permissions</li>
+        <li>Unlimited data history</li>
+        <li>Dedicated success manager</li>
+      </ul>
+      <button class="outline-btn">Contact Sales</button>
+    </div>
+  </div>
+</section>
+
+<section class="reviews">
+  <h2>Teams that <em>love</em> Clearwave</h2>
+  <p>Don’t take our word for it — here’s what real teams say after 90 days.</p>
+
+  <div class="review-grid">
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>“We replaced three separate tools with Clearwave and actually have fewer meetings now.”</p>
+      <strong>Sarah Lindqvist</strong><br>
+      <small>Head of Operations</small>
+    </div>
+
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>“The mobile app alone justified the switch. I can review dashboards between meetings without opening my laptop.”</p>
+      <strong>Marcus Reyes</strong><br>
+      <small>Product Director</small>
+    </div>
+
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>“Onboarding our 30-person team took one afternoon. The learning curve is genuinely flat.”</p>
+      <strong>Priya Kapoor</strong><br>
+      <small>Engineering Lead</small>
+    </div>
+  </div>
+</section>
+
+<section class="integrations">
+  <span class="badge">● INTEGRATIONS</span>
+  <h2>Connects with your<br><em>existing stack</em></h2>
+
+  <div class="integration-tags">
+    <span>Slack</span>
+    <span>Google Sheets</span>
+    <span>Google Drive</span>
+    <span>Zapier</span>
+    <span>Stripe</span>
+    <span>GitHub</span>
+    <span>Notion</span>
+    <span>Mailchimp</span>
+    <span>HubSpot</span>
+    <span>Airtable</span>
+    <span>Intercom</span>
+    <span>Salesforce</span>
+    <span>Figma</span>
+    <span>Linear</span>
+    <span>Jira</span>
+    <span>Webflow</span>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="faq-left">
+    <span class="badge">● FAQ</span>
+    <h2>Questions,<br><em>answered</em></h2>
+    <p>Can’t find what you’re looking for? Reach our team at hello@clearwave.io — we reply within 2 hours.</p>
+  </div>
+
+  <div>
+    <div class="faq-item"><span>Is there a free trial?</span><span>+</span></div>
+    <div class="faq-item"><span>How does pricing work for larger teams?</span><span>+</span></div>
+    <div class="faq-item"><span>Can I migrate data from another tool?</span><span>+</span></div>
+    <div class="faq-item"><span>What does the 99.9% uptime SLA mean?</span><span>+</span></div>
+    <div class="faq-item"><span>Is my data secure?</span><span>+</span></div>
+    <div class="faq-item"><span>Can I cancel anytime?</span><span>+</span></div>
+  </div>
+</section>
+
+<section class="cta">
+  <div>
+    <span class="badge">✦ GET STARTED TODAY</span>
+    <h2>Ready for a<br><em>clearer workflow?</em></h2>
+    <p>Join 50,000+ teams who replaced chaos with clarity. Set up in under 10 minutes.</p>
+  </div>
+
+  <div class="cta-actions">
+    <button class="btn">Start Free Trial →</button>
+    <button class="outline">Schedule a demo</button>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <h3>clear<span style="color:#178b7b;">wave</span></h3>
+      <p>The calm, powerful workspace for teams that want to focus on work — not on managing it.</p>
+      <div class="socials">
+        <span>𝕏</span>
+        <span>in</span>
+        <span>▶</span>
+        <span>♪</span>
+      </div>
+    </div>
+
+    <div>
+      <h4>PRODUCT</h4>
+      <p>Features<br>Mobile App<br>Pricing<br>Integrations<br>Changelog</p>
+    </div>
+
+    <div>
+      <h4>COMPANY</h4>
+      <p>About<br>Blog<br>Careers<br>Press Kit<br>Status</p>
+    </div>
+
+    <div>
+      <h4>SUPPORT</h4>
+      <p>Help Center<br>Documentation<br>Security<br>Contact<br>Community</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>© 2026 Clearwave. Design by TemplateMo</span>
+    <span>Privacy Policy &nbsp;&nbsp; Terms of Service &nbsp;&nbsp; Cookie Policy</span>
+  </div>
+</footer>
+
+</body>
+</html>
